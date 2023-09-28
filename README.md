@@ -65,4 +65,4 @@ Content-Type: application/json
 
 Path to each step that the data pass.
 
-![](https://ik.imagekit.io/macgarcia/assessment/flux-of-application.png?updatedAt=1695923092760)
+![](https://ik.imagekit.io/macgarcia/assessment/process-flow.png?updatedAt=1695923859249)
