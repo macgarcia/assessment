@@ -39,7 +39,7 @@ Response:
 ```json
 200 OK
 Content-Type: application/json
-Body: {"id": "30vbllyb"}
+{"id": "30vbllyb"}
 ```
 
 Requisition GET:
