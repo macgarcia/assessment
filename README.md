@@ -3,6 +3,14 @@
 ## Proposal
 In the context we have build an application to read a page _HTML_, this will be informed in a variable of environment on moment of building of container docker.
 
+## Technology
+
+    Java 11
+    Docker
+    Eclipse
+    Maven
+
+
 ## Context
 Was provided an environment with all dependencies to developement, then with this, need to read the page _HTML_ and find anywhere the evidence that refer a link, based in a term informed by user.
 
