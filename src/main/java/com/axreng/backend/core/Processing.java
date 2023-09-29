@@ -1,7 +1,5 @@
 package com.axreng.backend.core;
 
-import java.util.List;
-
 public class Processing extends Thread {
 	
 	private ControllerRequest controllerRequest;
@@ -17,8 +15,7 @@ public class Processing extends Thread {
 	
 	@Override
 	public void run() {
-		final List<String> urls = htmlProcessor.findDataByTerm(key);
-		this.controllerRequest.updateRequest(getName(), urls);
+		htmlProcessor.findDataByTerm(key, controllerRequest);
 	}
 
 }

@@ -3,7 +3,6 @@ package com.axreng.backend.core;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import com.axreng.backend.model.ResponseModel;
@@ -19,9 +18,12 @@ public class ControllerRequest {
 		requests.put(id, responseModel);
 	}
 	
-	public void updateRequest(String id, List<String> urls) {
+	public void updateRequest(String id, String url) {
+		requests.get(id).getUrls().add(url);
+	}
+	
+	public void finishRequest(String id) {
 		requests.get(id).setStatus(Status.DONE.getValue());
-		requests.get(id).setUrls(urls);
 	}
 	
 	public String get(String id) {

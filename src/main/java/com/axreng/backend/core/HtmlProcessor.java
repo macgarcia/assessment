@@ -4,20 +4,20 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class HtmlProcessor {
+	
+	private static final Logger LOGGER = LoggerFactory.getLogger(HtmlProcessor.class);
 
 	private final String URL_TO_SEARCH = System.getenv("BASE_URL");
 
-	public List<String> findDataByTerm(String term) {
-		try {
-			List<String> result = new ArrayList<String>();
-			
+	public void findDataByTerm(String term, ControllerRequest controllerRequest) {
+		try {			
 			HttpClient client = HttpClient.newHttpClient();
 			HttpRequest request = HttpRequest.newBuilder().uri(new URI(URL_TO_SEARCH)).GET().build();
 			HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
@@ -29,11 +29,11 @@ public class HtmlProcessor {
 			
 			while(matcher.find()) {
 				final String link = matcher.group();
-				result.add(link);
+				controllerRequest.updateRequest(Thread.currentThread().getName(), link);
 			}
-			return result;
+			controllerRequest.finishRequest(Thread.currentThread().getName());
 		} catch (Exception e) {
-			return Collections.emptyList();
+			LOGGER.error("Invalid URL");
 		}
 	}
 }
