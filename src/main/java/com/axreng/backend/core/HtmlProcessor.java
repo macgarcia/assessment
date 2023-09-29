@@ -14,7 +14,7 @@ public class HtmlProcessor {
 
 	private final String URL_TO_SEARCH = System.getenv("BASE_URL");
 
-	public synchronized List<String> findDataByTerm(String term) {
+	public List<String> findDataByTerm(String term) {
 		try {
 			List<String> result = new ArrayList<String>();
 			

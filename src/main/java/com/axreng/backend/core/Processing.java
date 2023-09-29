@@ -17,7 +17,6 @@ public class Processing extends Thread {
 	
 	@Override
 	public void run() {
-		//System.out.println("Process -> " + getName());
 		final List<String> urls = htmlProcessor.findDataByTerm(key);
 		this.controllerRequest.updateRequest(getName(), urls);
 	}
