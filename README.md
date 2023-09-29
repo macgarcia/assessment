@@ -6,10 +6,12 @@ In the context we have build an application to read a page _HTML_, this will be 
 ## Context
 Was provided an environment with all dependencies to developement, then with this, need to read the page _HTML_ and find anywhere the evidence that refer a link, based in a term informed by user.
 
-## Observations
+## Rules
 We will have to validate the parameter entered by the user with:
 
-**keyword** cannot have length longer than 32 characters or shorter than 4 caracters.
+**keyword** cannot have length longer than 32 characters or shorter than 4 caracters. If that happen, will be throw an exception with value 500, as an internal server error.
+
+    HTTP ERROR 500
 
 The archives _Dockerfile_ and _pom.xml_ cannot be changed.
 
@@ -66,3 +68,13 @@ Content-Type: application/json
 Path to each step that the data pass.
 
 ![](https://ik.imagekit.io/macgarcia/assessment/process-flow.png?updatedAt=1695923859249)
+
+## Test
+
+If you want to run all the application tests, access the project directory and execute the commands below.
+
+```bash
+$ mvn clean
+
+$ mvn verify
+```
